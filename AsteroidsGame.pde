@@ -1,5 +1,6 @@
 //your variable declarations here
 Spaceship bob = new Spaceship();
+Asteroid chad = new Asteroid();
 boolean up = false;
 boolean down = false;
 boolean left = false;
@@ -18,6 +19,8 @@ public void draw()
   background(0);
   bob.move();
   bob.show();
+  chad.move();
+  chad.show();
   for(int i = 0; i < stars.length; i++){
     stars[i].show();
   }
