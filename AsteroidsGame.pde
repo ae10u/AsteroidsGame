@@ -6,12 +6,17 @@ boolean down = false;
 boolean left = false;
 boolean right = false;
 Star [] stars = new Star [150];
+ArrayList <Asteroid> Rocks = new ArrayList<Asteroid>();
+
 public void setup() 
 {
   size(500, 500);
   background(0);
   for(int i = 0; i < stars.length; i++){
     stars[i] = new Star();
+  }
+  for(int i = 0; i < 20; i++){
+    Rocks.add(new Asteroid());
   }
 }
 public void draw() 
@@ -21,6 +26,13 @@ public void draw()
   bob.show();
   chad.move();
   chad.show();
+  for(int i = 0; i < Rocks.size(); i++){
+    Rocks.get(i).move();
+    Rocks.get(i).show();
+    float d = dist((float)bob.getX(), (float)bob.getY(),(float) Rocks.get(i).getX(),(float) Rocks.get(i).getY());
+    if (d < 10)
+      Rocks.remove(i);
+  }
   for(int i = 0; i < stars.length; i++){
     stars[i].show();
   }
